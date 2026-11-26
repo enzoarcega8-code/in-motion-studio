@@ -1,0 +1,200 @@
+/* =================================
+   TABLET RESPONSIVE (Max-width: 900px)
+   ================================= */
+
+@media screen and (max-width: 900px) {
+
+    /* NAVIGATION */
+    .navbar {
+        padding: 15px 4%;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    /* ABOUT SECTION */
+    .about {
+        padding: 75px 5%;
+        gap: 35px;
+    }
+
+    /* SERVICES SECTION (3 CONNECTED CARDS) */
+    .services {
+        padding-top: 75px;
+    }
+
+    .service-overlay {
+        padding: 20px;
+    }
+
+    .service-overlay h3 {
+        font-size: 22px;
+    }
+
+    /* GALLERY CAROUSEL */
+    .program-heading h2 {
+        font-size: 52px;
+    }
+
+    .carousel-wrapper {
+        padding: 0 5%;
+    }
+
+    .program-card {
+        flex: 0 0 80%;
+    }
+
+}
+
+
+/* =================================
+   MOBILE RESPONSIVE (Max-width: 600px)
+   ================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* NAVIGATION */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 16px 10px;
+    }
+
+    .logo img {
+        width: 125px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    /* HOME SECTION */
+    .hero {
+        min-height: 85vh;
+        padding: 100px 6%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        letter-spacing: 1px;
+        line-height: 1.2;
+    }
+
+    /* ABOUT SECTION */
+    .about {
+        flex-direction: column;
+        padding: 65px 7%;
+        gap: 30px;
+    }
+
+    .about-content h2 {
+        font-size: 38px;
+        margin-bottom: 18px;
+    }
+
+    .about-content p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .studio-highlights {
+        gap: 10px;
+    }
+
+    /* SERVICES SECTION (3 CONNECTED CARDS STACKED ON MOBILE) */
+    .services {
+        padding-top: 65px;
+    }
+
+    .services-heading {
+        padding: 0 7% 40px;
+    }
+
+    .services h2,
+    .booking h2 {
+        font-size: 40px;
+        letter-spacing: 1px;
+    }
+
+    .services .section-description,
+    .booking p {
+        font-size: 15px;
+    }
+
+    .service-container {
+        grid-template-columns: 1fr;
+    }
+
+    .service-overlay h3 {
+        font-size: 26px;
+    }
+
+    /* GALLERY CAROUSEL (1410x2000 RATIO, SWIPEABLE) */
+    .program-gallery {
+        padding-bottom: 65px;
+    }
+
+    .program-heading {
+        padding: 60px 7% 35px;
+    }
+
+    .program-heading h2 {
+        font-size: 42px;
+        letter-spacing: 2px;
+        line-height: 1.1;
+    }
+
+    .program-heading p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .carousel-wrapper {
+        padding: 0 0 0 7%;
+    }
+
+    .program-container {
+        gap: 14px;
+        padding-right: 7%;
+    }
+
+    .program-card {
+    flex: 0 0 84%; /* Increase % to make the next card's peek smaller */
+    border-radius: 8px;
+    }
+
+    /* BOOKING SECTION */
+    .booking {
+        padding: 65px 7%;
+    }
+
+    .booking-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .booking-buttons .main-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    /* FOOTER */
+    .footer-logo img {
+        width: 130px;
+    }
+
+    .studio-details {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+}
