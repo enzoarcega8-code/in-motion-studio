@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IN MOTION STUDIO</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">    
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <img src="images/Main logo.png" alt="IN MOTION Logo">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#booking">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="eyebrow">WELCOME TO IN MOTION STUDIO</span>
+            <h1>Spacious dance studio in QC.</h1>
+            <a href="#booking" class="main-btn">BOOK NOW</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="images/About us.png" alt="Dance Performance">
+        </div>
+
+        <div class="about-content">
+            <span class="eyebrow">WHO WE ARE</span>
+            <h2>ABOUT US</h2>
+            <p>
+                Welcome to IN MOTION STUDIO, a space made for
+                dancers, performers, and creative individuals.
+            </p>
+            <p>
+                We provide a place where people can practice,
+                improve their skills, and express themselves
+                through dance and movement.
+            </p>
+
+            <!-- STUDIO SPECS / HIGHLIGHTS -->
+            <div class="studio-highlights">
+                <span><i class="fa-solid fa-check"></i> Full-Length Mirrors</span>
+                <span><i class="fa-solid fa-check"></i> Pro Sound System</span>
+                <span><i class="fa-solid fa-check"></i> Fully Air-Conditioned</span>
+            </div>
+
+            <a href="#services" class="main-btn about-btn">LEARN MORE</a>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION (3 CONNECTED CARDS WITH OVERLAY HEADINGS) -->
+    <section class="services" id="services">
+        <div class="services-heading">
+            <span class="eyebrow">WHAT WE DO</span>
+            <h2>OUR SERVICES</h2>
+            <p class="section-description">
+                Discover what IN MOTION STUDIO has to offer.
+            </p>
+        </div>
+
+        <div class="service-container">
+            <!-- SERVICE 1 -->
+            <div class="service-card fade-in">
+                <img src="images/Dance class.png" alt="Studio Rental">
+                <div class="service-overlay">
+                    <span>SERVICE 01</span>
+                    <h3>STUDIO RENTAL</h3>
+                    <p>"Your private canvas to create, rehearse, and bring your vision to life."</p>
+                </div>
+            </div>
+
+            <!-- SERVICE 2 -->
+            <div class="service-card fade-in">
+                <img src="images/Dance class.png" alt="Dance Class">
+                <div class="service-overlay">
+                    <span>SERVICE 02</span>
+                    <h3>DANCE CLASS</h3>
+                    <p>"Step out of your comfort zone, master new grooves, and push your limits."</p>
+                </div>
+            </div>
+
+            <!-- SERVICE 3 -->
+            <div class="service-card fade-in">
+                <img src="images/Dance class.png" alt="Group Practice">
+                <div class="service-overlay">
+                    <span>SERVICE 03</span>
+                    <h3>GROUP PRACTICE</h3>
+                    <p>"Sync your energy, sharpen your formations, and build unstoppable team chemistry."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION (SWIPEABLE CAROUSEL: 1 VIDEO + 3 POSTERS, NO ARROWS, 1410x2000 RATIO) -->
+    <section class="program-gallery" id="gallery">
+        <div class="program-heading">
+            <span class="eyebrow">TRAIN WITH THE BEST</span>
+            <h2>UPCOMING DANCE CLASSES!!</h2>
+            <p>
+                Learn, create, and move with renowned choreographers.
+                Swipe through our upcoming workshops and dance sessions.
+            </p>
+        </div>
+
+        <div class="carousel-wrapper">
+            <!-- SWIPEABLE TRACK -->
+            <div class="program-container" id="galleryTrack">
+                <!-- BOX 1: VIDEO -->
+                <div class="program-card video-card">
+    <video id="studioVideo" playsinline loop muted>
+        <source src="images/Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button class="video-play-btn" id="videoToggleBtn" aria-label="Play or pause video">
+        <i class="fa-solid fa-play"></i>
+    </button>
+                </div>
+                <!-- BOX 2: POSTER 1 -->
+                <div class="program-card">
+                    <img src="images/Kirsten.png" alt="Dance Class Poster 1">
+                </div>
+
+                <!-- BOX 3: POSTER 2 -->
+                <div class="program-card">
+                    <img src="images/Eldon.png" alt="Dance Class Poster 2">
+                </div>
+
+                <!-- BOX 4: POSTER 3 -->
+                <div class="program-card">
+                    <img src="images/Isla.png" alt="Dance Class Poster 3">
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINATION DOTS -->
+        <div class="carousel-dots" id="galleryDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section class="booking" id="booking">
+        <span class="eyebrow dark-eyebrow">RESERVE YOUR SLOT</span>
+        <h2>BOOK YOUR SPACE</h2>
+        <p>Ready to move? Reach out via email or message us directly on Instagram to reserve your session.</p>
+        
+        <div class="booking-buttons">
+            <a href="mailto:yourstudio@email.com" class="main-btn dark-btn">
+                <i class="fa-solid fa-envelope"></i> EMAIL US
+            </a>
+            <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank" class="main-btn outline-dark-btn">
+                <i class="fa-brands fa-instagram"></i> MESSAGE ON IG
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <a href="#home" class="footer-logo">
+                <img src="images/Main logo.png" alt="IN MOTION Logo">
+            </a>
+            <p class="footer-tagline">Where movement meets creativity.</p>
+            
+            <!-- STUDIO INFO -->
+            <p class="studio-details">
+                <i class="fa-solid fa-location-dot"></i> Quezon City, Metro Manila &nbsp;|&nbsp; 
+                <i class="fa-regular fa-clock"></i> Open Daily: 9:00 AM – 10:00 PM
+            </p>
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/YOUR_PAGE" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@YOUR_USERNAME" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 IN MOTION STUDIO. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. SCROLL FADE-IN ANIMATION
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // 2. SWIPEABLE GALLERY CAROUSEL DOTS & VIDEO CONTROLS
+        const track = document.getElementById('galleryTrack');
+        const dots = document.querySelectorAll('.carousel-dots .dot');
+        const cards = document.querySelectorAll('.program-card');
+
+        function getScrollStep() {
+            const cardWidth = cards[0].offsetWidth;
+            const gap = parseInt(getComputedStyle(track).gap) || 18;
+            return cardWidth + gap;
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                track.scrollTo({ left: index * getScrollStep(), behavior: 'smooth' });
+            });
+        });
+
+        track.addEventListener('scroll', () => {
+            const index = Math.round(track.scrollLeft / getScrollStep());
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+
+        // Video Play / Pause Toggle
+        const studioVideo = document.getElementById('studioVideo');
+        const videoToggleBtn = document.getElementById('videoToggleBtn');
+        const videoIcon = videoToggleBtn.querySelector('i');
+
+        function toggleVideo() {
+            if (studioVideo.paused) {
+                studioVideo.play();
+                videoToggleBtn.classList.add('playing');
+                videoIcon.classList.replace('fa-play', 'fa-pause');
+            } else {
+                studioVideo.pause();
+                videoToggleBtn.classList.remove('playing');
+                videoIcon.classList.replace('fa-pause', 'fa-play');
+            }
+        }
+
+        videoToggleBtn.addEventListener('click', toggleVideo);
+        studioVideo.addEventListener('click', toggleVideo);
+    </script>
+
+</body>
+</html>
