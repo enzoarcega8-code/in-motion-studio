@@ -19,7 +19,7 @@
         gap: 35px;
     }
 
-    /* SERVICES SECTION (3 CONNECTED CARDS) */
+    /* SERVICES SECTION */
     .services {
         padding-top: 75px;
     }
@@ -32,7 +32,7 @@
         font-size: 22px;
     }
 
-    /* GALLERY CAROUSEL */
+    /* GALLERY CAROUSEL (SLIGHT PEEK OF NEXT CARD) */
     .program-heading h2 {
         font-size: 52px;
     }
@@ -43,6 +43,17 @@
 
     .program-card {
         flex: 0 0 80%;
+    }
+
+    /* BOOKING PORTAL */
+    .detail-showcase-grid,
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-main-poster {
+        max-width: 340px;
+        margin: 0 auto;
     }
 
 }
@@ -109,7 +120,7 @@
         gap: 10px;
     }
 
-    /* SERVICES SECTION (3 CONNECTED CARDS STACKED ON MOBILE) */
+    /* SERVICES SECTION */
     .services {
         padding-top: 65px;
     }
@@ -137,7 +148,7 @@
         font-size: 26px;
     }
 
-    /* GALLERY CAROUSEL (1410x2000 RATIO, SWIPEABLE) */
+    /* GALLERY CAROUSEL (SLIM PEEK OF NEXT CARD) */
     .program-gallery {
         padding-bottom: 65px;
     }
@@ -162,29 +173,59 @@
     }
 
     .program-container {
-        gap: 14px;
+        gap: 12px;
         padding-right: 7%;
     }
 
     .program-card {
-    flex: 0 0 84%; /* Increase % to make the next card's peek smaller */
-    border-radius: 8px;
+        flex: 0 0 84%;
+        border-radius: 8px;
     }
 
-    /* BOOKING SECTION */
+    /* BOOKING BANNER */
     .booking {
         padding: 65px 7%;
     }
 
-    .booking-buttons {
-        flex-direction: column;
-        align-items: center;
+    /* BOOKING PORTAL MOBILE */
+    .booking-portal {
+        padding: 24px 5% 65px;
     }
 
-    .booking-buttons .main-btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
+    .catalog-studio-banner h2 {
+        font-size: 22px;
+    }
+
+    .catalog-two-col-grid,
+    .related-two-col-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .catalog-item-caption {
+        padding: 10px 12px;
+    }
+
+    .catalog-item-caption h3 {
+        font-size: 13px;
+    }
+
+    .catalog-price {
+        font-size: 13px;
+    }
+
+    .detail-showcase-grid,
+    .checkout-summary-card,
+    .checkout-form-card {
+        padding: 20px 16px;
+    }
+
+    .detail-info-col h2 {
+        font-size: 32px;
+    }
+
+    .form-row-two {
+        grid-template-columns: 1fr;
     }
 
     /* FOOTER */
