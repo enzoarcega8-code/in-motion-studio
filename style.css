@@ -29,6 +29,10 @@ body {
     color: white;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* EYEBROW LABELS */
 .eyebrow {
     display: inline-block;
@@ -128,14 +132,18 @@ header {
 .main-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     font-family: var(--heading-font);
+    font-size: 16px;
     background-color: var(--yellow);
     color: var(--black);
     padding: 15px 34px;
     text-decoration: none;
     letter-spacing: 1px;
+    border: none;
     border-radius: 4px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -218,7 +226,7 @@ header {
 
 
 /* =================================
-   SERVICES SECTION (3 CONNECTED CARDS WITH OVERLAYS)
+   SERVICES SECTION (3 CONNECTED CARDS)
    ================================= */
 
 .services {
@@ -339,7 +347,7 @@ header {
 
 
 /* =================================
-   GALLERY SECTION (SWIPEABLE 4-CARD CAROUSEL - 1410x2000 RATIO)
+   GALLERY SECTION (SWIPEABLE 4-CARD CAROUSEL)
    ================================= */
 
 .program-gallery {
@@ -389,16 +397,16 @@ header {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 
 .program-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
+    display: none;
 }
 
 .program-card {
     position: relative;
-    flex: 0 0 30%; /* Shows all 4 cards at full 1410x2000 ratio on desktop */
+    flex: 0 0 calc((100% - 54px) / 4);
     aspect-ratio: 1410 / 2000;
     border-radius: 10px;
     overflow: hidden;
@@ -494,7 +502,7 @@ header {
 
 
 /* =================================
-   BOOKING SECTION (HIGH-CONTRAST YELLOW BANNER)
+   BOOKING SECTION (SINGLE BOOK NOW CTA)
    ================================= */
 
 .booking {
@@ -521,8 +529,6 @@ header {
 .booking-buttons {
     display: flex;
     justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
 }
 
 .dark-btn {
@@ -535,22 +541,508 @@ header {
     color: white;
 }
 
-.outline-dark-btn {
-    background-color: transparent;
-    color: var(--black);
-    border: 2px solid var(--black);
-}
-
-.outline-dark-btn:hover {
-    background-color: var(--black);
-    color: white;
+.booking-cta-btn {
+    padding: 18px 46px;
+    font-size: 18px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 
 /* =================================
-   FOOTER
+   BOOKING PORTAL (CATALOG -> DETAIL -> CHECKOUT)
    ================================= */
 
+.booking-portal {
+    min-height: 90vh;
+    background: linear-gradient(180deg, #1a0404 0%, var(--black) 100%);
+    padding: 35px 8% 90px;
+}
+
+.portal-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid rgba(255, 192, 0, 0.2);
+}
+
+.back-link-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.back-link-btn:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+}
+
+.step-pill {
+    font-family: var(--body-font);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    background-color: rgba(255, 192, 0, 0.14);
+    color: var(--yellow);
+    border: 1px solid rgba(255, 192, 0, 0.4);
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+
+/* STEP 1: STUDIO BANNER + 2-COL CLASS GRID */
+.catalog-studio-banner {
+    background-color: var(--yellow);
+    color: var(--black);
+    border-radius: 8px;
+    padding: 22px 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.catalog-studio-banner h2 {
+    font-family: var(--heading-font);
+    font-size: 28px;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+}
+
+.catalog-studio-banner p {
+    font-family: var(--body-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f1f1f;
+}
+
+.catalog-intro-box {
+    background: linear-gradient(145deg, rgba(69, 16, 16, 0.7), rgba(18, 18, 18, 0.95));
+    border: 1px solid rgba(255, 192, 0, 0.25);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 36px;
+}
+
+.catalog-intro-box p {
+    font-family: var(--body-font);
+    font-size: 15px;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+.catalog-two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.catalog-item-card {
+    background-color: #121212;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.catalog-item-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--yellow);
+}
+
+.catalog-item-img {
+    position: relative;
+    aspect-ratio: 1410 / 2000;
+    overflow: hidden;
+}
+
+.catalog-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-corner-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background-color: rgba(10, 10, 10, 0.85);
+    color: var(--yellow);
+    border: 1px solid rgba(255, 192, 0, 0.45);
+    font-family: var(--body-font);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.catalog-item-caption {
+    padding: 14px 16px;
+}
+
+.catalog-item-caption h3 {
+    font-family: var(--body-font);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: var(--white);
+    margin-bottom: 4px;
+}
+
+.catalog-price {
+    font-family: var(--body-font);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--yellow);
+}
+
+/* STEP 2: CLASS DETAIL VIEW */
+.detail-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 40px;
+    max-width: 1020px;
+    margin: 0 auto 60px;
+    background-color: #121212;
+    border: 1px solid rgba(255, 192, 0, 0.22);
+    border-radius: 10px;
+    padding: 32px;
+    align-items: start;
+}
+
+.detail-main-poster {
+    aspect-ratio: 1410 / 2000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.detail-main-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.detail-info-col h2 {
+    font-family: var(--heading-font);
+    font-size: 42px;
+    letter-spacing: 1.5px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.detail-price-display {
+    font-family: var(--body-font);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--yellow);
+    margin-bottom: 18px;
+}
+
+.detail-desc-text {
+    font-family: var(--body-font);
+    font-size: 15px;
+    line-height: 1.7;
+    color: #dddddd;
+    margin-bottom: 24px;
+}
+
+.detail-control-block {
+    margin-bottom: 22px;
+}
+
+.detail-control-block label {
+    display: block;
+    font-family: var(--body-font);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    color: #bbbbbb;
+    margin-bottom: 8px;
+}
+
+.detail-select {
+    width: 100%;
+    padding: 13px 14px;
+    background-color: #1c1c1c;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 6px;
+    font-family: var(--body-font);
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+}
+
+.detail-select:focus {
+    border-color: var(--yellow);
+}
+
+.availability-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--body-font);
+    font-size: 12px;
+    font-weight: 700;
+    color: #cccccc;
+    margin-top: 10px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #2ecc71;
+}
+
+.qty-stepper {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    background-color: #1c1c1c;
+    overflow: hidden;
+}
+
+.qty-stepper button {
+    width: 42px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: var(--yellow);
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.qty-stepper button:hover {
+    background-color: rgba(255, 192, 0, 0.15);
+}
+
+.qty-stepper span {
+    min-width: 44px;
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.full-width-btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+}
+
+.related-classes-section {
+    max-width: 1020px;
+    margin: 0 auto;
+}
+
+.related-classes-section h3 {
+    font-family: var(--heading-font);
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.related-two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* STEP 3: CHECKOUT & DATABASE FORM */
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 30px;
+    max-width: 1020px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.checkout-summary-card,
+.checkout-form-card {
+    background-color: #121212;
+    border: 1px solid rgba(255, 192, 0, 0.25);
+    border-radius: 10px;
+    padding: 28px;
+}
+
+.summary-preview {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 18px;
+}
+
+.summary-preview img {
+    width: 72px;
+    aspect-ratio: 1410 / 2000;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.summary-preview h3 {
+    font-family: var(--heading-font);
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+.summary-preview p {
+    font-family: var(--body-font);
+    font-size: 13px;
+    color: #cccccc;
+    margin-bottom: 8px;
+}
+
+.summary-badge {
+    display: inline-block;
+    font-family: var(--body-font);
+    font-size: 11px;
+    font-weight: 800;
+    background-color: var(--red);
+    color: var(--yellow);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.summary-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--body-font);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #cccccc;
+}
+
+.total-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
+    margin-top: 4px;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--yellow);
+}
+
+.checkout-form-card h3 {
+    font-family: var(--heading-font);
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.form-subtext {
+    font-family: var(--body-font);
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-bottom: 22px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--body-font);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #e0e0e0;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: #1c1c1c;
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--yellow);
+}
+
+.form-row-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.booking-confirmation {
+    text-align: center;
+    padding: 16px 8px;
+}
+
+.confirm-icon {
+    font-size: 50px;
+    color: var(--yellow);
+    margin-bottom: 12px;
+}
+
+.booking-confirmation h3 {
+    font-family: var(--heading-font);
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.booking-confirmation > p {
+    font-family: var(--body-font);
+    font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 18px;
+}
+
+.receipt-box {
+    background-color: #1b1b1b;
+    border: 1px dashed rgba(255, 192, 0, 0.5);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: left;
+    font-family: var(--body-font);
+    font-size: 14px;
+    line-height: 1.8;
+    color: #eeeeee;
+    margin-bottom: 22px;
+}
 footer {
     background-color: #050505;
     text-align: center;
@@ -569,7 +1061,6 @@ footer {
     font-size: 16px;
     margin-bottom: 12px;
 }
-
 .studio-details {
     font-family: var(--body-font);
     color: #888888;
@@ -599,7 +1090,6 @@ footer {
     color: var(--yellow);
     transform: translateY(-3px);
 }
-
 .footer-bottom {
     border-top: 1px solid #222222;
     padding-top: 20px;
