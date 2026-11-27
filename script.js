@@ -1,57 +1,20 @@
 /* jshint esversion: 11, browser: true */
-
-/**
- * @typedef {Object} ClassInfo
- * @property {string} key
- * @property {string} title
- * @property {string} styleLabel
- * @property {string} priceText
- * @property {string} poster
- * @property {string[]} schedules
- * @property {string} description
- */
-
-/**
- * @typedef {Object} BookingRecord
- * @property {string} full_name
- * @property {string} email
- * @property {string} contact_info
- * @property {string} class_type
- * @property {string} schedule_slot
- * @property {number} quantity
- * @property {string} preferred_date
- * @property {string} payment_method
- * @property {number} total_amount
- */
+/* global SUPABASE_URL, SUPABASE_ANON_KEY, UNIT_PRICE, classCatalog */
 
 (function () {
     "use strict";
 
-    // Settings come from js/config.js
-    /** @type {{supabaseUrl: string, supabaseAnonKey: string, unitPrice: number, classCatalog: Object<string, ClassInfo>}} */
-    const CONFIG = /** @type {any} */ (window).APP_CONFIG;
-    const SUPABASE_URL = CONFIG.supabaseUrl;
-    const SUPABASE_ANON_KEY = CONFIG.supabaseAnonKey;
-    const UNIT_PRICE = CONFIG.unitPrice;
-    const classCatalog = CONFIG.classCatalog;
-
     /* ==========================================================
        1. HELPERS
        ========================================================== */
-    /**
-     * @param {string} id
-     * @returns {any}
-     */
     function byId(id) {
         return document.getElementById(id);
     }
 
-    /** @param {HTMLElement} el */
     function show(el) {
         el.classList.remove("hidden");
     }
 
-    /** @param {HTMLElement} el */
     function hide(el) {
         el.classList.add("hidden");
     }
@@ -60,22 +23,13 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    /**
-     * @param {*} str
-     * @returns {string}
-     */
     function escapeHTML(str) {
-        /** @type {Object<string, string>} */
         const map = { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" };
-        return String(str).replace(/[&<>"']/g, function (/** @type {string} */ c) {
+        return String(str).replace(/[&<>"']/g, function (c) {
             return map[c];
         });
     }
 
-    /**
-     * @param {number} amount
-     * @returns {string}
-     */
     function formatPeso(amount) {
         return "₱" + amount.toLocaleString("en-US", {
             minimumFractionDigits: 2,
@@ -83,7 +37,6 @@
         });
     }
 
-    /** @returns {string} */
     function todayISO() {
         const d = new Date();
         const month = String(d.getMonth() + 1).padStart(2, "0");
@@ -106,9 +59,8 @@
     /* ==========================================================
        3. BOOKING FLOW (catalog -> detail -> checkout)
        ========================================================== */
-    /** @param {HTMLElement} view */
     function showView(view) {
-        [catalogView, detailView, checkoutView].forEach(function (/** @type {HTMLElement} */ v) {
+        [catalogView, detailView, checkoutView].forEach(function (v) {
             if (v === view) {
                 show(v);
             } else {
@@ -134,14 +86,12 @@
         byId("detailBtnTotal").textContent = formatPeso(currentQuantity * UNIT_PRICE);
     }
 
-    /** @param {string} activeKey */
     function renderRelatedClasses(activeKey) {
-        /** @type {ClassInfo[]} */
-        const others = Object.values(classCatalog).filter(function (/** @type {ClassInfo} */ item) {
+        const others = Object.values(classCatalog).filter(function (item) {
             return item.key !== activeKey;
         });
 
-        byId("relatedClassesGrid").innerHTML = others.map(function (/** @type {ClassInfo} */ item) {
+        byId("relatedClassesGrid").innerHTML = others.map(function (item) {
             return `
                 <div class="catalog-item-card" data-action="open-class" data-class="${escapeHTML(item.key)}" role="button" tabindex="0">
                     <div class="catalog-item-img">
@@ -156,7 +106,6 @@
         }).join("");
     }
 
-    /** @param {string} classKey */
     function openClassDetail(classKey) {
         currentClass = classCatalog[classKey] || classCatalog.dancehall;
         currentQuantity = 1;
@@ -169,7 +118,7 @@
         byId("detailPoster").src = currentClass.poster;
         byId("detailPoster").alt = currentClass.title + " Poster";
 
-        byId("detailScheduleSelect").innerHTML = currentClass.schedules.map(function (/** @type {string} */ slot) {
+        byId("detailScheduleSelect").innerHTML = currentClass.schedules.map(function (slot) {
             return `<option value="${escapeHTML(slot)}">${escapeHTML(slot)}</option>`;
         }).join("");
 
@@ -205,19 +154,18 @@
     /* ==========================================================
        4. CLICK HANDLING (buttons use data-action in the HTML)
        ========================================================== */
-    /** @type {Object<string, function(HTMLElement): void>} */
     const actions = {
         "open-catalog": openBookingCatalog,
         "close-flow": closeBookingFlow,
         "open-checkout": openCheckoutForm,
         "back-detail": backToDetailView,
-        "open-class": function (/** @type {HTMLElement} */ el) {
+        "open-class": function (el) {
             openClassDetail(el.getAttribute("data-class"));
         }
     };
 
     document.addEventListener("click", function (e) {
-        const el = /** @type {HTMLElement | null} */ (/** @type {HTMLElement} */ (e.target).closest("[data-action]"));
+        const el = e.target.closest("[data-action]");
         if (!el) { return; }
         const run = actions[el.getAttribute("data-action")];
         if (run) { run(el); }
@@ -226,7 +174,7 @@
     // Let Enter / Space activate the class cards (keyboard users)
     document.addEventListener("keydown", function (e) {
         if (e.key !== "Enter" && e.key !== " ") { return; }
-        const el = /** @type {HTMLElement | null} */ (/** @type {HTMLElement} */ (e.target).closest("[role='button'][data-action]"));
+        const el = e.target.closest("[role='button'][data-action]");
         if (!el) { return; }
         e.preventDefault();
         el.click();
@@ -253,10 +201,6 @@
     const submitBtn = byId("submitBookingBtn");
     const SUBMIT_ICON = "<i class=\"fa-solid fa-calendar-check\"></i> ";
 
-    /**
-     * @param {BookingRecord} record
-     * @returns {Promise<boolean>}
-     */
     async function saveToSupabase(record) {
         if (SUPABASE_URL.indexOf("YOUR_PROJECT_ID") !== -1) { return false; }
         try {
@@ -277,7 +221,6 @@
         }
     }
 
-    /** @param {BookingRecord} record */
     function saveToBrowser(record) {
         try {
             const existing = JSON.parse(localStorage.getItem("inMotionBookings") || "[]");
@@ -288,7 +231,6 @@
         }
     }
 
-    /** @param {BookingRecord} record */
     function showReceipt(record) {
         hide(bookingForm);
         show(byId("bookingConfirmation"));
@@ -305,11 +247,10 @@
             <p><strong>Payment &amp; Total:</strong> ${escapeHTML(record.payment_method)} • ${formatPeso(record.total_amount)}</p>`;
     }
 
-    bookingForm.addEventListener("submit", async function (/** @type {Event} */ e) {
+    bookingForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const total = currentQuantity * UNIT_PRICE;
-        /** @type {BookingRecord} */
         const record = {
             full_name: byId("fullName").value.trim(),
             email: byId("emailAddress").value.trim(),
@@ -364,7 +305,7 @@
     function getScrollStep() {
         if (!cards.length) { return 1; }
         const gap = parseInt(getComputedStyle(track).gap, 10) || 18;
-        return /** @type {HTMLElement} */ (cards[0]).offsetWidth + gap;
+        return cards[0].offsetWidth + gap;
     }
 
     function updateDots() {
@@ -409,7 +350,7 @@
             studioVideo.play().then(function () {
                 videoToggleBtn.classList.add("playing");
                 videoIcon.classList.replace("fa-play", "fa-pause");
-            }).catch(function (/** @type {any} */ err) {
+            }).catch(function (err) {
                 console.error("Video could not play:", err);
             });
         } else {
