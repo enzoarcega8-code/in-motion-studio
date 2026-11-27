@@ -13,6 +13,11 @@
         gap: 18px;
     }
 
+    /* HOME SECTION */
+    .hero h1 {
+        font-size: 56px;
+    }
+
     /* ABOUT SECTION */
     .about {
         padding: 75px 5%;

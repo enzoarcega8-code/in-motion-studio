@@ -7,15 +7,16 @@
   <title>IN MOTION STUDIO</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <!-- CSS Files -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./responsive.css">
 </head>
 
 <body>
@@ -23,16 +24,16 @@
   <!-- NAVIGATION BAR -->
   <header>
     <nav class="navbar">
-      <a href="#home" class="logo" onclick="closeBookingFlow()">
-        <img src="images/Main logo.png" alt="IN MOTION Logo">
+      <a href="#home" class="logo" data-action="close-flow">
+        <img src="images/Main%20logo.png" alt="IN MOTION Logo">
       </a>
 
       <ul class="nav-links">
-        <li><a href="#home" onclick="closeBookingFlow()">Home</a></li>
-        <li><a href="#about" onclick="closeBookingFlow()">About</a></li>
-        <li><a href="#services" onclick="closeBookingFlow()">Services</a></li>
-        <li><a href="#gallery" onclick="closeBookingFlow()">Gallery</a></li>
-        <li><a href="#booking" onclick="closeBookingFlow()">Booking</a></li>
+        <li><a href="#home" data-action="close-flow">Home</a></li>
+        <li><a href="#about" data-action="close-flow">About</a></li>
+        <li><a href="#services" data-action="close-flow">Services</a></li>
+        <li><a href="#gallery" data-action="close-flow">Gallery</a></li>
+        <li><a href="#booking" data-action="close-flow">Booking</a></li>
       </ul>
     </nav>
   </header>
@@ -45,14 +46,14 @@
       <div class="hero-content">
         <span class="eyebrow">WELCOME TO IN MOTION STUDIO</span>
         <h1>Spacious dance studio in QC.</h1>
-        <button type="button" class="main-btn" onclick="openBookingCatalog()">BOOK NOW</button>
+        <button type="button" class="main-btn" data-action="open-catalog">BOOK NOW</button>
       </div>
     </section>
 
     <!-- ABOUT SECTION -->
     <section class="about" id="about">
       <div class="about-image">
-        <img src="images/About us.png" alt="Dance Performance">
+        <img src="images/About%20us.png" alt="Dance Performance">
       </div>
 
       <div class="about-content">
@@ -92,9 +93,9 @@
       <div class="service-container">
         <!-- SERVICE 1 -->
         <div class="service-card fade-in">
-          <img src="images/Service1.png" alt="Studio Rental">
+          <img src="images/Dance class.png" alt="Studio Rental">
           <div class="service-overlay">
-            <span>SERVICE 01</span>
+            <span>Spacious dance studio!</span>
             <h3>STUDIO RENTAL</h3>
             <p>"Your private canvas to create, rehearse, and bring your vision to life."</p>
           </div>
@@ -102,9 +103,9 @@
 
         <!-- SERVICE 2 -->
         <div class="service-card fade-in">
-          <img src="images/Service2.png" alt="Dance Class">
+          <img src="images/Dance class.png" alt="Dance Class">
           <div class="service-overlay">
-            <span>SERVICE 02</span>
+            <span>Want to expand your horizon?</span>
             <h3>DANCE CLASS</h3>
             <p>"Step out of your comfort zone, master new grooves, and push your limits."</p>
           </div>
@@ -112,9 +113,9 @@
 
         <!-- SERVICE 3 -->
         <div class="service-card fade-in">
-          <img src="images/Service3.png" alt="Group Practice">
+          <img src="images/Dance class.png" alt="Group Practice">
           <div class="service-overlay">
-            <span>SERVICE 03</span>
+            <span>Spacious place for your group!</span>
             <h3>GROUP PRACTICE</h3>
             <p>"Sync your energy, sharpen your formations, and build unstoppable team chemistry."</p>
           </div>
@@ -138,7 +139,7 @@
           <!-- BOX 1: VIDEO -->
           <div class="program-card video-card">
             <video id="studioVideo" poster="images/video-poster.jpg" playsinline loop>
-              <source src="videos/dance-preview.mp4" type="video/mp4">
+              <source src="images/Video.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
             <button class="video-play-btn" id="videoToggleBtn" aria-label="Play or pause video">
@@ -179,7 +180,7 @@
       <p>Ready to move? Check out our open dance classes, pick your schedule, and book your spot online.</p>
 
       <div class="booking-buttons">
-        <button type="button" class="main-btn dark-btn booking-cta-btn" onclick="openBookingCatalog()">
+        <button type="button" class="main-btn dark-btn booking-cta-btn" data-action="open-catalog">
           BOOK NOW
         </button>
       </div>
@@ -188,14 +189,14 @@
   </main>
 
   <!-- ==========================================================
-         BOOKING PORTAL (3 STEPS: CLASS GALLERY -> DETAIL -> CHECKOUT)
+         BOOKING PORTAL (3 STEPS: CLASS GALLERY, DETAIL, CHECKOUT)
          ========================================================== -->
   <section class="booking-portal hidden" id="bookingPortal">
 
     <!-- STEP 1: DANCE BOOKING GALLERY (2-COL GRID + STUDIO BANNER) -->
     <div class="portal-step" id="bookingCatalogView">
       <div class="portal-topbar">
-        <button type="button" class="back-link-btn" onclick="closeBookingFlow()">
+        <button type="button" class="back-link-btn" data-action="close-flow">
           <i class="fa-solid fa-arrow-left"></i> Back to Home
         </button>
         <span class="step-pill">OPEN DANCE CLASSES</span>
@@ -217,7 +218,7 @@
 
       <div class="catalog-two-col-grid">
         <!-- CLASS 1: DANCEHALL -->
-        <div class="catalog-item-card" onclick="openClassDetail('dancehall')">
+        <div class="catalog-item-card" data-action="open-class" data-class="dancehall" role="button" tabindex="0">
           <div class="catalog-item-img">
             <img src="images/Kirsten.png" alt="Dancehall Class">
             <span class="card-corner-tag">DANCEHALL</span>
@@ -229,7 +230,7 @@
         </div>
 
         <!-- CLASS 2: OPENSTYLE -->
-        <div class="catalog-item-card" onclick="openClassDetail('openstyle')">
+        <div class="catalog-item-card" data-action="open-class" data-class="openstyle" role="button" tabindex="0">
           <div class="catalog-item-img">
             <img src="images/Eldon.png" alt="Openstyle Class">
             <span class="card-corner-tag">OPENSTYLE</span>
@@ -241,7 +242,7 @@
         </div>
 
         <!-- CLASS 3: GANGSTA -->
-        <div class="catalog-item-card" onclick="openClassDetail('gangsta')">
+        <div class="catalog-item-card" data-action="open-class" data-class="gangsta" role="button" tabindex="0">
           <div class="catalog-item-img">
             <img src="images/Isla.png" alt="Gangsta Class">
             <span class="card-corner-tag">GANGSTA</span>
@@ -254,10 +255,10 @@
       </div>
     </div>
 
-    <!-- STEP 2: CLASS DESCRIPTION, TIME & QUANTITY VIEW -->
+    <!-- STEP 2: CLASS DESCRIPTION, TIME AND QUANTITY VIEW -->
     <div class="portal-step hidden" id="bookingDetailView">
       <div class="portal-topbar">
-        <button type="button" class="back-link-btn" onclick="openBookingCatalog()">
+        <button type="button" class="back-link-btn" data-action="open-catalog">
           <i class="fa-solid fa-arrow-left"></i> Back to Classes
         </button>
         <span class="step-pill" id="detailPillTag">CLASS DETAILS</span>
@@ -280,7 +281,7 @@
           </p>
 
           <div class="detail-control-block">
-            <label for="detailScheduleSelect">CLASS TIME & SCHEDULE</label>
+            <label for="detailScheduleSelect">CLASS TIME &amp; SCHEDULE</label>
             <select id="detailScheduleSelect" class="detail-select">
               <!-- Populated dynamically via JS -->
             </select>
@@ -290,7 +291,7 @@
           </div>
 
           <div class="detail-control-block">
-            <label>QUANTITY (SLOTS)</label>
+            <span class="control-label">QUANTITY (SLOTS)</span>
             <div class="qty-stepper">
               <button type="button" id="qtyMinusBtn" aria-label="Decrease quantity">−</button>
               <span id="qtyValue">1</span>
@@ -298,7 +299,7 @@
             </div>
           </div>
 
-          <button type="button" class="main-btn full-width-btn checkout-action-btn" onclick="openCheckoutForm()">
+          <button type="button" class="main-btn full-width-btn checkout-action-btn" data-action="open-checkout">
             CHECKOUT • <span id="detailBtnTotal">₱800.00</span>
           </button>
         </div>
@@ -313,13 +314,13 @@
       </div>
     </div>
 
-    <!-- STEP 3: CHECKOUT & DATABASE FORM -->
+    <!-- STEP 3: CHECKOUT FORM -->
     <div class="portal-step hidden" id="bookingCheckoutView">
       <div class="portal-topbar">
-        <button type="button" class="back-link-btn" onclick="backToDetailView()">
+        <button type="button" class="back-link-btn" data-action="back-detail">
           <i class="fa-solid fa-arrow-left"></i> Back to Class Details
         </button>
-        <span class="step-pill">CHECKOUT & DATABASE</span>
+        <span class="step-pill">CHECKOUT</span>
       </div>
 
       <div class="checkout-layout">
@@ -351,10 +352,10 @@
           </div>
         </div>
 
-        <!-- DATABASE FORM -->
+        <!-- BOOKING FORM -->
         <div class="checkout-form-card">
           <h3>DANCER DETAILS</h3>
-          <p class="form-subtext">Enter your information below to save this booking to the database.</p>
+          <p class="form-subtext">Enter your details below to complete your booking.</p>
 
           <form id="databaseBookingForm">
             <div class="form-group">
@@ -391,7 +392,7 @@
             </div>
 
             <button type="submit" class="main-btn full-width-btn" id="submitBookingBtn">
-              <i class="fa-solid fa-database"></i> COMPLETE BOOKING (<span id="submitBtnPrice">₱800.00</span>)
+              <i class="fa-solid fa-calendar-check"></i> COMPLETE BOOKING (<span id="submitBtnPrice">₱800.00</span>)
             </button>
           </form>
 
@@ -399,9 +400,9 @@
           <div class="booking-confirmation hidden" id="bookingConfirmation">
             <div class="confirm-icon"><i class="fa-solid fa-circle-check"></i></div>
             <h3>BOOKING CONFIRMED!</h3>
-            <p id="confirmationText">Your booking details have been saved.</p>
+            <p id="confirmationText">Your booking details have been recorded.</p>
             <div class="receipt-box" id="receiptDetails"></div>
-            <button type="button" class="main-btn" onclick="openBookingCatalog()">BOOK ANOTHER CLASS</button>
+            <button type="button" class="main-btn" data-action="open-catalog">BOOK ANOTHER CLASS</button>
           </div>
         </div>
       </div>
@@ -412,8 +413,8 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
-      <a href="#home" class="footer-logo" onclick="closeBookingFlow()">
-        <img src="images/Main logo.png" alt="IN MOTION Logo">
+      <a href="#home" class="footer-logo" data-action="close-flow">
+        <img src="images/Main%20logo.png" alt="IN MOTION Logo">
       </a>
       <p class="footer-tagline">Where movement meets creativity.</p>
 
@@ -424,9 +425,9 @@
       </p>
 
       <div class="social-icons">
-        <a href="https://www.facebook.com/YOUR_PAGE" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@YOUR_USERNAME" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@YOUR_USERNAME" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -434,314 +435,9 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
-  <script>
-        // ==========================================
-        // 1. SUPABASE CLOUD DATABASE KEYS
-        // ==========================================
-        const SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co";
-        const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
-
-        // ==========================================
-        // 2. CLASS DATA (DANCEHALL, OPENSTYLE, GANGSTA - ₱800)
-        // ==========================================
-        const UNIT_PRICE = 800;
-
-        const classCatalog = {
-            dancehall: {
-                key: "dancehall",
-                title: "DANCEHALL",
-              styleLabel: "CLASS TYPE: DANCEHALL",
-                priceText: "₱800.00",
-                poster: "images/Kirsten.png",
-                schedules: [
-                    "Saturday • 5:00 PM – 6:30 PM (Studio A)",
-                    "Saturday • 7:00 PM – 8:30 PM (Studio A)"
-                ],
-                description: "High-energy Dancehall class focusing on bounce, footwork foundations, rhythm, and full choreography at IN MOTION STUDIO."
-            },
-            openstyle: {
-                key: "openstyle",
-                title: "OPENSTYLE",
-                styleLabel: "CLASS TYPE: OPENSTYLE",
-                priceText: "₱800.00",
-                poster: "images/Eldon.png",
-                schedules: [
-                    "Sunday • 4:00 PM – 5:30 PM (Studio A)",
-                    "Sunday • 6:00 PM – 7:30 PM (Studio A)"
-                ],
-                description: "Versatile Openstyle session blending street styles, dynamic transitions, musicality, and personal movement expression."
-            },
-            gangsta: {
-                key: "gangsta",
-                title: "GANGSTA",
-                styleLabel: "CLASS TYPE: GANGSTA",
-                priceText: "₱800.00",
-                poster: "images/Isla.png",
-                schedules: [
-                    "Wednesday • 6:30 PM – 8:00 PM (Studio A)",
-                    "Friday • 7:00 PM – 8:30 PM (Studio A)"
-                  ],
-                description: "Heavy-hitting Gangsta choreography session emphasizing power, groove, sharp textures, and confident stage presence."
-            }
-        };
-
-        let currentClass = classCatalog.dancehall;
-        let currentQuantity = 1;
-
-        function formatPeso(amount) {
-            return `₱${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        }
-
-        // ==========================================
-        // 3. BOOKING FLOW NAVIGATION
-        // ==========================================
-        const mainSiteContent = document.getElementById('mainSiteContent');
-        const bookingPortal = document.getElementById('bookingPortal');
-        const bookingCatalogView = document.getElementById('bookingCatalogView');
-        const bookingDetailView = document.getElementById('bookingDetailView');
-        const bookingCheckoutView = document.getElementById('bookingCheckoutView');
-
-        function openBookingCatalog() {
-            mainSiteContent.classList.add('hidden');
-            bookingPortal.classList.remove('hidden');
-            bookingCatalogView.classList.remove('hidden');
-            bookingDetailView.classList.add('hidden');
-            bookingCheckoutView.classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openClassDetail(classKey) {
-            currentClass = classCatalog[classKey] || classCatalog.dancehall;
-            currentQuantity = 1;
-
-            document.getElementById('detailPillTag').textContent = `${currentClass.title} • ₱800.00`;
-            document.getElementById('detailStyleLabel').textContent = currentClass.styleLabel;
-            document.getElementById('detailTitle').textContent = currentClass.title;
-            document.getElementById('detailPrice').textContent = currentClass.priceText;
-            document.getElementById('detailDescription').textContent = currentClass.description;
-            document.getElementById('detailPoster').src = currentClass.poster;
-            document.getElementById('detailPoster').alt = `${currentClass.title} Poster`;
-
-            // Populate schedule times
-            const scheduleSelect = document.getElementById('detailScheduleSelect');
-            scheduleSelect.innerHTML = currentClass.schedules
-                .map(slot => `<option value="${slot}">${slot}</option>`)
-                .join('');
-
-            updateQuantityUI();
-            renderRelatedClasses(currentClass.key);
-
-            bookingCatalogView.classList.add('hidden');
-            bookingDetailView.classList.remove('hidden');
-            bookingCheckoutView.classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function updateQuantityUI() {
-            document.getElementById('qtyValue').textContent = currentQuantity;
-            const total = currentQuantity * UNIT_PRICE;
-            document.getElementById('detailBtnTotal').textContent = formatPeso(total);
-        }
-
-        document.getElementById('qtyMinusBtn').addEventListener('click', () => {
-            if (currentQuantity > 1) {
-                currentQuantity--;
-                updateQuantityUI();
-            }
-        });
-
-        document.getElementById('qtyPlusBtn').addEventListener('click', () => {
-            if (currentQuantity < 10) {
-                currentQuantity++;
-                updateQuantityUI();
-            }
-        });
-
-        function renderRelatedClasses(activeKey) {
-            const others = Object.values(classCatalog).filter(item => item.key !== activeKey);
-            const grid = document.getElementById('relatedClassesGrid');
-            grid.innerHTML = others.map(item => `
-                <div class="catalog-item-card" onclick="openClassDetail('${item.key}')">
-                    <div class="catalog-item-img">
-                        <img src="${item.poster}" alt="${item.title}">
-                        <span class="card-corner-tag">${item.title}</span>
-                    </div>
-                    <div class="catalog-item-caption">
-                        <h3>${item.title}</h3>
-                        <span class="catalog-price">${item.priceText}</span>
-                    </div>
-                </div>
-            .join('`);
-        }
-
-        function openCheckoutForm() {
-            const selectedSchedule = document.getElementById('detailScheduleSelect').value;
-            const totalPeso = formatPeso(currentQuantity * UNIT_PRICE);
-
-            document.getElementById('checkoutPoster').src = currentClass.poster;
-            document.getElementById('checkoutClassName').textContent = currentClass.title;
-            document.getElementById('checkoutTimeSlot').textContent = selectedSchedule;
-            document.getElementById('checkoutQtyBadge').textContent = `${currentQuantity} ${currentQuantity > 1 ? 'SLOTS' : 'SLOT'} × ₱800.00`;
-            document.getElementById('checkoutSlotCount').textContent = currentQuantity;
-            document.getElementById('checkoutTotalAmount').textContent = totalPeso;
-            document.getElementById('submitBtnPrice').textContent = totalPeso;
-
-            document.getElementById('databaseBookingForm').classList.remove('hidden');
-            document.getElementById('bookingConfirmation').classList.add('hidden');
-
-            bookingCatalogView.classList.add('hidden');
-            bookingDetailView.classList.add('hidden');
-            bookingCheckoutView.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function backToDetailView() {
-            bookingCheckoutView.classList.add('hidden');
-            bookingDetailView.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeBookingFlow() {
-            bookingPortal.classList.add('hidden');
-            mainSiteContent.classList.remove('hidden');
-        }
-      
-      // ==========================================
-        // 4. DATABASE SUBMISSION (SUPABASE + LOCAL)
-        // ==========================================
-        const bookingForm = document.getElementById('databaseBookingForm');
-        const submitBtn = document.getElementById('submitBookingBtn');
-
-        bookingForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const totalNumeric = currentQuantity * UNIT_PRICE;
-            const scheduleVal = document.getElementById('detailScheduleSelect').value;
-
-            const record = {
-                full_name: document.getElementById('fullName').value.trim(),
-                email: document.getElementById('emailAddress').value.trim(),
-                contact_info: document.getElementById('contactInfo').value.trim(),
-                class_type: currentClass.title,
-                schedule_slot: scheduleVal,
-                quantity: currentQuantity,
-                preferred_date: document.getElementById('sessionDate').value,
-                payment_method: document.getElementById('paymentMethod').value,
-                total_amount: totalNumeric
-            };
-
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SAVING...';
-
-            let savedCloud = false;
-           
-            if (!SUPABASE_URL.includes("YOUR_PROJECT_ID")) {
-                try {
-                    const res = await fetch(`${SUPABASE_URL}/rest/v1/bookings`, {
-                        method: "POST",
-                        headers: {
-                            "apikey": SUPABASE_ANON_KEY,
-                            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-                            "Content-Type": "application/json",
-                            "Prefer": "return=representation"
-                        },
-                        body: JSON.stringify(record)
-                    });
-                    savedCloud = res.ok;
-                } catch (error) {
-                    console.error("Database error:", error);
-                }
-          }
-          const existing = JSON.parse(localStorage.getItem('inMotionBookings') || '[]');
-            existing.push({ ...record, created_at: new Date().toISOString() });
-            localStorage.setItem('inMotionBookings', JSON.stringify(existing));
-
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = `<i class="fa-solid fa-database"></i> COMPLETE BOOKING (${formatPeso(totalNumeric)})`;
-            bookingForm.classList.add('hidden');
-            document.getElementById('bookingConfirmation').classList.remove('hidden');
-
-            document.getElementById('confirmationText').textContent = savedCloud
-                ? "Saved directly to your Supabase database!"
-                : "Booking recorded! (Add your Supabase URL & anon key in index.html for live cloud sync.)";
-
-            document.getElementById('receiptDetails').innerHTML = `
-                <p><strong>Name:</strong> ${record.full_name}</p>
-                <p><strong>Email:</strong> ${record.email}</p>
-                <p><strong>Contact / IG:</strong> ${record.contact_info}</p>
-                <p><strong>Class:</strong> ${record.class_type} (${record.schedule_slot})</p>
-                <p><strong>Slots & Date:</strong> ${record.quantity} slot(s) on ${record.preferred_date}</p>
-                <p><strong>Payment& Total:</strong> ${record.payment_method} • ${formatPeso(record.total_amount)}</p>
-            `;
-
-            bookingForm.reset();
-        });
-
-        // ==========================================
-        // 5. SCROLL FADE-IN ANIMATION
-        // ==========================================
-        const faders = document.querySelectorAll('.fade-in');
-        const appearOptions = {
-            threshold: 0.2,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('appear');
-                observer.unobserve(entry.target);
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-
-        const track = document.getElementById('galleryTrack');
-        const dots = document.querySelectorAll('.carousel-dots .dot');
-        const cards = document.querySelectorAll('.program-card');
-
-        function getScrollStep() {
-            const cardWidth = cards[0].offsetWidth;
-            const gap = parseInt(getComputedStyle(track).gap) || 18;
-            return cardWidth + gap;
-        }
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const index = parseInt(dot.getAttribute('data-index'));
-                track.scrollTo({ left: index * getScrollStep(), behavior: 'smooth' });
-            });
-        });
-
-        track.addEventListener('scroll', () => {
-            const index = Math.round(track.scrollLeft / getScrollStep());
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        });
-
-      const studioVideo = document.getElementById('studioVideo');
-        const videoToggleBtn = document.getElementById('videoToggleBtn');
-        const videoIcon = videoToggleBtn.querySelector('i');
-
-        function toggleVideo() {
-            if (studioVideo.paused) {
-                studioVideo.play();
-                videoToggleBtn.classList.add('playing');
-                videoIcon.classList.replace('fa-play', 'fa-pause');
-            } else {
-                studioVideo.pause();
-                videoToggleBtn.classList.remove('playing');
-                videoIcon.classList.replace('fa-pause', 'fa-play');
-            }
-        }
-
-      videoToggleBtn.addEventListener('click', toggleVideo);
-        studioVideo.addEventListener('click', toggleVideo);
-    </script>
+  <!-- SCRIPTS (settings and class list are in js/config.js) -->
+  <script src="js/config.js" defer></script>
+  <script src="js/script.js" defer></script>
 
 </body>
 </html>

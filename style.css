@@ -23,10 +23,33 @@ html {
     --body-font: 'Outfit', sans-serif;
 }
 
+/* Paragraphs and general text use Outfit */
 body {
-    font-family: var(--heading-font);
+    font-family: var(--body-font);
     background-color: var(--black);
     color: white;
+    overflow-x: hidden; /* nothing can push the page wider than the screen */
+}
+
+/* Headlines use Bowlby One SC */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--heading-font);
+}
+
+/* Form controls follow the page font instead of the browser default */
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* Images can never be wider than their container */
+img {
+    max-width: 100%;
 }
 
 .hidden {
@@ -770,7 +793,8 @@ header {
     margin-bottom: 22px;
 }
 
-.detail-control-block label {
+.detail-control-block label,
+.detail-control-block .control-label {
     display: block;
     font-family: var(--body-font);
     font-size: 12px;
@@ -1043,16 +1067,31 @@ header {
     color: #eeeeee;
     margin-bottom: 22px;
 }
+/* =================================
+   FOOTER
+   ================================= */
+
 footer {
     background-color: #050505;
     text-align: center;
     padding: 65px 20px 25px;
 }
 
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    display: inline-block;
+}
+
 .footer-logo img {
+    display: block;
     width: 160px;
+    max-width: 100%;
     height: auto;
-    margin-bottom: 12px;
+    margin: 0 auto 12px;
 }
 
 .footer-tagline {
@@ -1061,10 +1100,12 @@ footer {
     font-size: 16px;
     margin-bottom: 12px;
 }
+
 .studio-details {
     font-family: var(--body-font);
     color: #888888;
     font-size: 14px;
+    line-height: 1.7;
     margin-bottom: 28px;
 }
 
@@ -1083,6 +1124,7 @@ footer {
 .social-icons a {
     color: white;
     font-size: 22px;
+    text-decoration: none;
     transition: 0.3s;
 }
 
@@ -1090,6 +1132,7 @@ footer {
     color: var(--yellow);
     transform: translateY(-3px);
 }
+
 .footer-bottom {
     border-top: 1px solid #222222;
     padding-top: 20px;
